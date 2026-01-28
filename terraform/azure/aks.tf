@@ -32,4 +32,9 @@ resource azurerm_kubernetes_cluster "k8s_cluster" {
     git_repo             = "terragoat"
     yor_trace            = "6103d111-864e-42e5-899c-1864de281fd1"
   }
+  local_account_disabled = true
+  azure_active_directory_role_based_access_control {
+    azure_rbac_enabled = true
+    admin_group_object_ids = ["<your-azure-ad-group-object-id>"]
+  }
 }
