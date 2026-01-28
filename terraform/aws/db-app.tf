@@ -246,6 +246,12 @@ resource "aws_instance" "db_app" {
   instance_type        = "t2.nano"
   iam_instance_profile = aws_iam_instance_profile.ec2profile.name
 
+  metadata_options {
+    http_endpoint = "enabled"
+    http_tokens   = "required"
+    http_put_response_hop_limit = 1
+  }
+
   vpc_security_group_ids = [
   "${aws_security_group.web-node.id}"]
   subnet_id = "${aws_subnet.web_subnet.id}"
