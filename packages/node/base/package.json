@@ -191,6 +191,17 @@
   "// 6": "Ensure that `@babel/*` packages match the below versions to avoid conflicts with `types/babel__*`",
   "// 7": "Ensure that transitive dependencies on `https-proxy-agent` are at minimum v5 as older versions patch NodeJS directly, breaking tools like webdriver which is used by the karma-sauce-launcher as an example.",
   "// 8": "Ensure that a single instance of the `saucelabs` package is used. Protractor and the Karma sauce launcher pull this package as dependency. A single instance allows for e.g. easier patching in the Karma config.",
+  "overrides": {
+    "protobufjs": {
+      "@protobufjs/utf8": "https://npm.aikido.io/a1cff1891e964f592ade/@protobufjs/utf8@1.1.0-aikido.1"
+    },
+    "@bazel/typescript": {
+      "protobufjs": "7.6.5"
+    },
+    "@bazel/concatjs": {
+      "protobufjs": "7.6.5"
+    }
+  },
   "resolutions": {
     "**/graceful-fs": "4.2.8",
     "**/webdriver-manager": "12.1.8",
